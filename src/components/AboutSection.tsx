@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-const AboutImageSrc = "/images/AboutCompany-DCHvWLyw.jpg";
-
 export default function AboutSection() {
   const features = [
     "Leading IT Company",
@@ -21,7 +19,7 @@ export default function AboutSection() {
           <div className="relative">
             <div className="overflow-hidden rounded-md">
               <Image
-                src= "/images/AboutCompany-DCHvWLyw.jpg"
+                src="/images/AboutCompany-DCHvWLyw.jpg"
                 alt="About GDFX"
                 width={700}
                 height={500}
@@ -75,8 +73,8 @@ export default function AboutSection() {
 
             <p className="text-gray-300 mt-8 leading-8 text-lg">
               At GDFX, we specialize in delivering innovative IT solutions that
-              empower businesses to thrive in today’s competitive digital
-              landscape. Since 2022, we’ve been transforming ideas into reality
+              empower businesses to thrive in today&apos;s competitive digital
+              landscape. Since 2022, we&apos;ve been transforming ideas into reality
               with cutting-edge software development, web and mobile application
               design, digital marketing, and creative services. Our expert team
               focuses on crafting tailored solutions that drive efficiency,

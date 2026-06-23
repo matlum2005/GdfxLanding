@@ -42,8 +42,8 @@ export default function HeroSection() {
             {/* Paragraph */}
             <p className="mt-8 text-gray-300 text-lg leading-10 max-w-3xl">
               Consider that you have a concept for a website or an app that can
-              deliver a solution, knowledge, or something enjoyable. We're here
-              to help you bring your vision to life online or on your phone. We
+We&apos;re here
+              to help you bring your vision to life online or on your phone.
               want users to have a positive experience using your website or
               app, which means it must be simple to use, appealing to the eye,
               and capable of performing its intended function.

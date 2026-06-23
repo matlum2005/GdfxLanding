@@ -24,7 +24,7 @@ export default function ServicesSection() {
             </p>
 
             <h2 className="text-white text-5xl font-bold leading-tight">
-              Services We're Providing
+              Services We&apos;re Providing
               <br />
               To{" "}
               <span className="bg-gradient-to-r from-[#5f7cff] to-[#c14fff] bg-clip-text text-transparent">
@@ -35,9 +35,9 @@ export default function ServicesSection() {
             <p className="text-gray-300 mt-6 text-lg leading-8 max-w-xl">
               At Globaldigitalsfx, we offer a comprehensive range of IT
               services designed to meet the diverse needs of businesses in
-              today's digital landscape. Our expert team is committed to
+              today&apos;s digital landscape. Our expert team is committed to
               delivering innovative solutions that drive efficiency, enhance
-              security, and foster growth. Here's a detailed look at our key
+              security, and foster growth. Here&apos;s a detailed look at our key
               services:
             </p>
 

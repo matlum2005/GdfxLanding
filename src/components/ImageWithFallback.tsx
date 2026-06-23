@@ -18,6 +18,7 @@ export default function ImageWithFallback({ src, fallbackSrc, ...props }: Props)
     <Image
       {...props}
       src={currentSrc}
+      alt={(props as { alt?: string }).alt ?? ""}
       onError={() => {
         if (!isFallback) setCurrentSrc(fallbackSrc);
       }}
