@@ -1,8 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import ImageWithFallback from "./ImageWithFallback";
+
 
 const blogs = [
   {
@@ -85,8 +86,9 @@ export default function BlogSection() {
             >
               {/* Image */}
               <div className="relative overflow-hidden">
-                <Image
+                <ImageWithFallback
                   src={blog.src}
+                  fallbackSrc="/images/blog.jpg"
                   alt={blog.title}
                   width={500}
                   height={250}
