@@ -7,7 +7,7 @@ export default function ExperienceSection() {
   return (
    <section
   id="experience"
-  className="py-24 bg-[#020b35] overflow-hidden"
+  className="py-24 bg-[#000000] overflow-hidden"
 >
   <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
@@ -89,10 +89,10 @@ export default function ExperienceSection() {
       playsInline
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.4 }}
-      className="w-full h-[300px] object-cover rounded-1xl"
+      className="w-full [430px] object-cover rounded-1xl"
     >
       <source
-        src="https://www.w3schools.com/html/mov_bbb.mp4"
+        src="images/Tech.mp4"
         type="video/mp4"
       />
     </motion.video>

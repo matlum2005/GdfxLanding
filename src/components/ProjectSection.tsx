@@ -23,7 +23,7 @@ export default function ProjectSection() {
   return (
     <section
       id="projects"
-      className="bg-[#020b35] py-24 overflow-hidden"
+      className="bg-[Black] py-24 overflow-hidden"
     >
       <div className="max-w-[1700px] mx-auto px-6">
 

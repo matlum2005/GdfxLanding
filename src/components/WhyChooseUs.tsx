@@ -17,10 +17,7 @@ export default function WhyChooseUs() {
     q: "How do GDFX’s web development services benefit my business?",
     a: "Our web solutions improve user experience, increase engagement, strengthen brand presence, and help convert visitors into customers.",
   },
-  {
-    q: "What kind of post-launch support does GDFX offer?",
-    a: "We provide maintenance, updates, optimization, monitoring, and technical support to ensure your digital products continue performing effectively.",
-  },
+ 
 ];
 
   return (

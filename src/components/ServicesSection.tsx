@@ -7,7 +7,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="py-24 bg-[#020b35] overflow-hidden"
+      className="py-24 bg-[Black] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 items-center">

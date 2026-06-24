@@ -307,7 +307,7 @@ transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
                           }}
                           className="w-full rounded-2xl px-6 py-4 text-white font-semibold bg-gradient-to-r from-[#6E7BFF] to-[#D546FF] shadow-[0_15px_40px_rgba(179,76,255,0.35)]"
                         >
-                          Get in Touch
+                         Get in touch
                         </motion.button>
                       </div>
                     </div>
@@ -317,17 +317,7 @@ transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
             )}
           </AnimatePresence>
 
-          {/* Button */}
-          <motion.button
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => scrollToId("contact")}
-            className="relative overflow-hidden rounded-xl px-8 py-4 font-semibold text-white"
-          >
-            <span className="absolute inset-0 bg-gradient-to-r from-[#6E7BFF] to-[#D546FF]" />
-            <span className="absolute inset-0 blur-xl opacity-50 bg-gradient-to-r from-[#6E7BFF] to-[#D546FF]" />
-            <span className="relative">Get in Touch</span>
-          </motion.button>
+        
         </div>
       </div>
     </motion.header>

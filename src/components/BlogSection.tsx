@@ -32,7 +32,7 @@ export default function BlogSection() {
   return (
     <section
       id="blog"
-      className="py-24 bg-[#020b35] overflow-hidden"
+      className="py-24 bg-[Black] overflow-hidden"
     >
       <div className="max-w-[1700px] mx-auto px-6">
 

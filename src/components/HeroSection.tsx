@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Users,
@@ -9,66 +11,67 @@ import {
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#060f35] py-28">
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,#1b2c7a20,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,#8b5cf620,transparent_50%)]" />
+    <section className="relative overflow-hidden py-24 sm:py-28">
+  {/* Background Image */}
+  <Image
+    src="/images/hero-bg.png"
+    alt="Hero Background"
+    fill
+    priority
+    className="object-cover"
+  />
 
-      <div className="relative max-w-8xl mx-auto px-1 lg:px-2">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-[#060f35]/85" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,#1b2c7a40,transparent_50%)]" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,#8b5cf640,transparent_50%)]" />
+
+  {/* IMPORTANT WRAPPER */}
+  <div className="relative z-10 mx-auto w-full max-w-8xl px-4 sm:px-6 lg:px-8">
+    <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
 
           {/* LEFT SIDE */}
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
+            initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+            className="min-w-0"
           >
             {/* Top Badge */}
-            <div className="inline-flex items-center border border-[#4D72FF] rounded-full px-2 py-3 mb-6">
-              <span className="text-[#7f9cff] text-sm font-medium tracking-wide">
+            <div className="inline-flex items-center rounded-full border border-[#4D72FF]/60 bg-white/5 px-4 py-2 mb-8">
+              <span className="text-[#7f9cff] text-sm sm:text-[0.95rem] font-medium tracking-wide">
                 Transform Your Idea Into Effective Solutions
               </span>
             </div>
 
             {/* Heading */}
-           <h1 className="text-white font-extrabold leading-[1.1] text-[40px]">
+            <h1 className="text-white font-extrabold leading-[1.06] text-2xl md:text-2xl lg:text-6xl">
               We Provide
               <br />
-              <span className="bg-gradient-to-r from-[#5f7cff] via-[#7f6dff] to-[#c74fff] bg-clip-text text-transparent">
-  Mobile Apps
-</span>
+              <span className="bg-gradient-to-r from-[#5f7cff] via-[#7f6dff] to-[#c14fff] bg-clip-text text-transparent">
+                Mobile Apps
+              </span>
             </h1>
 
             {/* Paragraph */}
-            <p className="mt-8 text-gray-300 text-lg leading-10 max-w-3xl">
-              Consider that you have a concept for a website or an app that can
-We&apos;re here
-              to help you bring your vision to life online or on your phone.
-              want users to have a positive experience using your website or
-              app, which means it must be simple to use, appealing to the eye,
-              and capable of performing its intended function.
+            <p className="mt-8 text-base md:text-lg lg:text-xl leading-4 md:leading-6 text-gray-300 max-w-1xl">
+              Consider that you have a concept for a website or an app that can deliver a solution, knowledge, or something enjoyable. We&apos;re here to help you bring your vision to life online or on your phone. We want users to have a positive experience using your website or app, which means it must be simple to use, appealing to the eye, and capable of performing its intended function.
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-wrap gap-6 mt-10">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6">
               <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  y: -3,
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 rounded-full text-white text-xl font-semibold bg-gradient-to-r from-[#6f8cff] to-[#b34eff]"
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full sm:w-auto px-7 py-4 rounded-full text-white text-base md:text-lg font-semibold bg-gradient-to-r from-[#6f8cff] to-[#b34eff] shadow-[0_15px_40px_rgba(109,140,255,0.25)]"
               >
                 Start a Project
               </motion.button>
 
               <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  y: -3,
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 rounded-full text-white text-xl font-semibold bg-gradient-to-r from-[#ff6b7f] to-[#b84cff]"
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full sm:w-auto px-7 py-4 rounded-full text-white text-base md:text-lg font-semibold bg-gradient-to-r from-[#5f7cff] to-[#c14fff] shadow-[0_15px_40px_rgba(193,79,255,0.25)]"
               >
                 Book Free Consultant
               </motion.button>
@@ -76,14 +79,12 @@ We&apos;re here
           </motion.div>
 
           {/* RIGHT SIDE */}
-         
-<div className="space-y-6">
+          <div className="space-y-6 mt-2 lg:mt-0">
+            {/* Top Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
 
-  {/* Top Cards */}
-  <div className="grid grid-cols-2 gap-8">
-
-    {/* Card 1 */}
-   <motion.div
+              {/* Card 1 */}
+              <motion.div
   initial={{ opacity: 0, y: 40 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ delay: 0.2 }}

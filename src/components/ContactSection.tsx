@@ -16,9 +16,9 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="bg-[#020b35] py-24 overflow-hidden"
+      className="bg-[Black] py-24 overflow-hidden"
     >
-      <div className="max-w-[1700px] mx-auto px-6">
+      <div className="max-w-[1500px] mx-auto px-6">
 
         <div className="grid lg:grid-cols-2 gap-20 items-center">
 
