@@ -129,7 +129,11 @@ const fadeRight = {
   initial: { opacity: 0, x: 70 },
   whileInView: { opacity: 1, x: 0 },
   viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.75, ease: "easeOut" },
+  transition: {
+    duration: 0.75,
+    // Keep typing strict (no explicit `any`).
+    ease: "easeOut" as unknown as import("framer-motion").Easing,
+  },
 };
 
 function formatDate(dateStr: string) {
@@ -409,12 +413,12 @@ export default function BlogPage() {
                   <motion.div
                     className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[#5f7cff]/25 blur-3xl"
                     animate={{ x: [0, 22, 0], y: [0, -10, 0] }}
-                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+transition={{ duration: 7, repeat: Infinity }}
                   />
                   <motion.div
                     className="absolute top-6 -right-24 h-72 w-72 rounded-full bg-[#c14fff]/20 blur-3xl"
                     animate={{ x: [0, -18, 0], y: [0, 14, 0] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+transition={{ duration: 8, repeat: Infinity, ease: [0.25, 0.1, 0.25, 1] }}
                   />
                 </div>
 

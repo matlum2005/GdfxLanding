@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
+
   Code2,
   Cpu,
   Database,

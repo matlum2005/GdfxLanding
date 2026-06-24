@@ -18,8 +18,7 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
-
+import { useMemo } from "react";
 
 
 const fadeUp = {
@@ -43,50 +42,7 @@ const fadeRight = {
   transition: { duration: 0.8 },
 };
 
-function useAnimatedCounter(target: number, durationMs = 1200) {
-  const [value, setValue] = useState(0);
-  const [inView, setInView] = useState(false);
-  const id = useMemo(
-    () => `cnt-${Math.random().toString(16).slice(2)}`,
-    []
-  );
 
-  useEffect(() => {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    const obs = new IntersectionObserver(
-      (entries) => {
-        const first = entries[0];
-        if (first?.isIntersecting) setInView(true);
-      },
-      { threshold: 0.25 }
-    );
-
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [id]);
-
-  useEffect(() => {
-    if (!inView) return;
-
-    let raf = 0;
-    const start = performance.now();
-
-    const tick = (now: number) => {
-      const elapsed = now - start;
-      const t = Math.min(1, elapsed / durationMs);
-      const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
-      setValue(Math.floor(eased * target));
-      if (t < 1) raf = requestAnimationFrame(tick);
-    };
-
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [durationMs, inView, target]);
-
-  return { value, id };
-}
 
 function SectionHeading({
   kicker,
@@ -502,7 +458,9 @@ export default function AboutPage() {
               { label: "Support", target: 24, suffix: "/7" },
               { label: "Client Satisfaction", target: 99, suffix: "%" },
             ].map(({ label, target, suffix }) => {
-              const { value, id } = useAnimatedCounter(target, 1200);
+              // NOTE: Hooks must not be called in callbacks.
+              const value = Math.floor(target);
+              const id = `cnt-${label}`;
               return (
                 <motion.div
                   key={label}

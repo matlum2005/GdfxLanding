@@ -108,7 +108,7 @@ export default function Navbar() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: hidden ? -120 : 0 }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
+transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
       className="fixed top-0 left-0 w-full z-50"
     >
       <div
@@ -260,7 +260,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
+transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
                 className="lg:hidden absolute top-[82px] left-0 right-0 z-[60]"
               >
                 <div className="mx-auto max-w-7xl px-6">
