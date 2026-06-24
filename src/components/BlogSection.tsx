@@ -8,22 +8,22 @@ import ImageWithFallback from "./ImageWithFallback";
 const blogs = [
   {
     date: "13 Feb\n2025",
-    src: "/images/blog.jpg",
+    src: "/images/blog.png",
     title: "Post-Graduation Pathways: Pursuing Careers Abroad ...",
   },
   {
     date: "12 Feb\n2025",
-    src: "/images/blog2.jpg",
+    src: "/images/blog2.png",
     title: "Developers can take a trick from Product Managers'...",
   },
   {
     date: "11 Feb\n2025",
-    src: "/images/blog3.jpg",
+    src: "/images/blog3.png",
     title: "The Impact of Open Educational Resources on Higher...",
   },
   {
     date: "10 Feb\n2025",
-    src: "/images/blog4.jpg",
+    src: "/images/blog4.png",
     title: "Backing fact-checking organizations alongside Nobe...",
   },
 ];

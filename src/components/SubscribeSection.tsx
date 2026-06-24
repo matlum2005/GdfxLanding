@@ -7,7 +7,7 @@ export default function SubscribeSection() {
   return (
     <section
       id="subscribe"
-      className="bg-[#020b35] py-32 overflow-hidden"
+      className="bg-[Black] py-32 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-6 text-center">
 

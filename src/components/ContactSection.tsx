@@ -117,7 +117,7 @@ export default function ContactSection() {
               "
               style={{
                 backgroundImage:
-                  "url('/images/contact-bg.jpg')",
+                  "url('/images/contact-us.png')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}

@@ -145,15 +145,22 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/#about"
+              href="/about"
               className={navLinkClass("about")}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToId("about");
+              onClick={() => {
+                // Navigate to dedicated About page (no scrolling)
+                setOpen(false);
               }}
             >
               About
             </Link>
+            <Link
+                 href="/blog"
+                 className="text-white hover:text-purple-400 transition"
+                 >
+                    Blog
+                     </Link>
+
 
             {/* Service Dropdown */}
             <div className="relative">
@@ -181,7 +188,7 @@ export default function Navbar() {
                   >
                     <button
                       onClick={() => {
-                        scrollToId("services");
+                        window.location.href = "/services";
                         setOpen(false);
                       }}
                       className="block w-full rounded-lg px-4 py-3 text-left hover:bg-white/10"
@@ -204,16 +211,7 @@ export default function Navbar() {
               Case Study
             </Link>
 
-            <Link
-              href="/#blog"
-              className={navLinkClass("blog")}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToId("blog");
-              }}
-            >
-              Blog
-            </Link>
+            
 
             <Link
               href="/#contact"
@@ -275,8 +273,17 @@ export default function Navbar() {
                             type="button"
                             onClick={() => {
                               setMobileMenuOpen(false);
+                              if (item.id === "services") {
+                                window.location.href = "/services";
+                                return;
+                              }
+                              if (item.id === "about") {
+                                window.location.href = "/about";
+                                return;
+                              }
                               scrollToId(item.id);
                             }}
+
                             className={`w-full text-left px-4 py-3 rounded-2xl border border-white/0 transition-all duration-300 ${
                               activeId === item.id
                                 ? "bg-gradient-to-r from-[#6E7BFF]/30 to-[#D546FF]/30 text-white border-white/15"
