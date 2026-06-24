@@ -81,44 +81,34 @@ export default function HeroSection() {
           {/* RIGHT SIDE */}
           <div className="space-y-6 mt-2 lg:mt-0">
             {/* Top Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
 
               {/* Card 1 */}
-              <motion.div
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.2 }}
-  whileHover={{
-    y: -8,
-    scale: 1.02,
-  }}
-  className="
-    bg-[#121d42]/80
-    backdrop-blur-md
-    border border-white/10
-    rounded-[20px]
-    px-8 py-8
-    h-[300px]
-    w-[300px]
-    shadow-[0_0_20px_rgba(79,70,229,0.15)]
-  "
->
-  <Users
-    size={48}
-    className="text-[#8a63ff] mb-6"
-  />
+             <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.4 }}
+      whileHover={{
+        y: -8,
+        rotateY: -5,
+      }}
+      className="bg-[#121d42]/80 backdrop-blur-md border border-[#31406f] rounded-[20px]
+      p-4 h-[300px] flex flex-col justify-start"
+    >
+      <CheckCircle
+        size={48}
+        className="text-pink-500 mb-6"
+      />
 
-  <h3 className="text-white text-[15px] font-bold leading-[.4] mb-3">
-    Client Centric Approach
-  </h3>
+      <h3 className="text-white text-[15px] font-bold leading-[1.0] mb-3">
+       Client Centric Approach
+      </h3>
 
-  <p className="text-gray-400 text-[14px] leading-[2]">
-    We prioritize understanding your unique business needs,
-    addressing challenges, and delivering tailored solutions
-    aligned with your goals to drive growth and long-term value
-    creation.
-  </p>
-</motion.div>
+      <p className="text-[#9ca3af] text-[14px] leading-[2]">
+        We prioritize understanding your unique business needs, addressing challenges, and delivering tailored solutions aligned with your goals to drive growth and long-term value creation.
+      </p>
+    </motion.div>
+  
 
     {/* Card 2 */}
     <motion.div
