@@ -1,16 +1,29 @@
-# TODO - Premium Enterprise Upgrade
+# TODO - Responsive & Premium UI Upgrade (Next.js 15 + TS + Tailwind)
 
-- [x] Step 1: Improve global styles & container/padding consistency (globals.css, app/layout.tsx)
-- [ ] Step 2: Upgrade Navbar (sticky glassmorphism, mobile a11y, active highlighting robustness)
-- [ ] Step 3: Improve HeroSection responsiveness & premium layout
-- [ ] Step 4: Make cards across sections equal-height + premium hover/shadows (About/Services/WhyChooseUs/Experience/BottomCards/BlogSection/ProjectSection/Testimonials/Contact/Subscribe)
-- [ ] Step 5: Improve images (use ImageWithFallback consistently, prevent CLS, responsive sizes)
-- [ ] Step 6: Statistics section: ensure exact values 1021+, 50+, 24/7, 99% with responsive alignment + animations
-- [ ] Step 7: Blog page: featured section + working search/category filters UI + responsive cards
-- [ ] Step 8: Case studies page: enterprise showcase polish + responsive cards + keyboard accessible filters
-- [ ] Step 9: Contact page: better responsive form layout + validation UI (no backend/API changes)
-- [ ] Step 10: Accessibility sweep (ARIA labels, keyboard navigation, heading structure)
-- [ ] Step 11: Performance sweep (Framer Motion optimization, reduced motion support, image optimization)
-- [ ] Step 12: Fix all TypeScript/ESLint/build errors
-- [ ] Step 13: Final validation commands: npm install, npm run lint, npm run build, npm run dev
+## Step 1 — Audit + plan confirmation
+- [x] Read key files (layout, globals, navbar, hero, about, services, why choose, contact, footer, home page, contact page)
+- [x] Identify fixed px/min-h/hard sizing risks and typography inconsistency
+- [x] Confirm edit plan with user
+
+## Step 2 — Implement typography upgrades
+- [ ] Update `src/app/globals.css` (font defaults, readable typography scale helpers if needed)
+- [ ] Ensure all affected components use responsive `text-*` with heading/body hierarchy
+
+
+## Step 3 — Responsiveness fixes (no feature/routing changes)
+- [ ] Navbar: improve mobile dropdown panel sizing/overflow + accessibility attributes
+- [ ] Hero: remove problematic fixed min-heights and tighten responsive spacing
+- [ ] About/Services/WhyChooseUs/ContactSection/Footer: replace fixed heights & pixel sizes; ensure grids/cards don’t overflow
+- [ ] Contact page: adjust heading + form spacing to avoid small-screen overflow
+
+## Step 4 — Cards & forms consistency
+- [ ] Ensure card padding/typography scales responsively
+- [ ] Improve form focus/labels/aria where missing; remove fixed input heights
+
+## Step 5 — Performance + CLS safety
+- [ ] Background containers stability; ensure no layout shifts from fixed sizes
+- [ ] Review next/image usage where present (keep existing assets/routes)
+
+## Step 6 — Validate build
+- [ ] Run `npm run build` and fix any TS/ESLint hydration issues
 

@@ -28,11 +28,11 @@ export default function AboutSection() {
             </div>
 
             {/* Stats Card */}
-            <div className="absolute -bottom-20 left-5 bg-gradient-to-r from-[#9b4dff] to-[#d55cff] rounded-xl px-8 py-5 flex items-center gap-4 shadow-xl">
+            <div className="absolute -bottom-20 left-5 bg-gradient-to-r from-[#9b4dff] to-[#d55cff] rounded-xl px-2 py-4 flex items-center gap-3 shadow-xl">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
                 <svg
-                  width="34"
-                  height="34"
+                  width="30"
+                  height="30"
                   fill="none"
                   stroke="#A855F7"
                   strokeWidth="2"
@@ -46,7 +46,7 @@ export default function AboutSection() {
               </div>
 
               <div>
-                <h3 className="text-white text-5xl font-bold leading-none">
+                <h3 className="text-white text-4xl font-bold leading-none">
                   1,021+
                 </h3>
                 <p className="text-white uppercase text-lg font-semibold mt-2">

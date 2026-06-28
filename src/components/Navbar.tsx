@@ -28,8 +28,15 @@ export default function Navbar() {
   const mobileMenuBtnRef = useRef<HTMLButtonElement | null>(null);
 
   const sectionIds = useMemo(
-    () => ["about", "services", "case-study", "case-studies", "blog", "contact"],
-    []
+    () => [
+      "about",
+      "services",
+      "case-study",
+      "case-studies",
+      "blog",
+      "contact",
+    ],
+    [],
   );
 
   const activeId = useActiveSection(sectionIds);
@@ -42,7 +49,7 @@ export default function Navbar() {
       { id: "blog", label: "Blog" },
       { id: "contact", label: "Contact" },
     ],
-    []
+    [],
   );
 
   useEffect(() => {
@@ -53,9 +60,7 @@ export default function Navbar() {
       if (!target) return;
 
       const dropdown = target.closest('[data-navbar-dropdown="service"]');
-      const button = target.closest(
-        '[data-navbar-dropdown-button="service"]'
-      );
+      const button = target.closest('[data-navbar-dropdown-button="service"]');
 
       if (!dropdown && !button) {
         setOpen(false);
@@ -99,24 +104,21 @@ export default function Navbar() {
 
   const navLinkClass = (id: string) =>
     `relative text-[15px] font-semibold transition-all duration-300 ${
-      activeId === id
-        ? "text-white"
-        : "text-white/80 hover:text-white"
+      activeId === id ? "text-white" : "text-white/80 hover:text-white"
     }`;
 
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: hidden ? -120 : 0 }}
-transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
       className="fixed top-0 left-0 w-full z-50"
     >
-      <div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_top,#5f7cff20,transparent_70%)] pointer-events-none"
-      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#5f7cff20,transparent_70%)] pointer-events-none" />
 
       <div className="h-[82px] backdrop-blur-xl bg-[#060f35]/75 border-b border-white/10 shadow-[0_8px_40px_rgba(0,0,0,0.35)]">
-        <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6">
+<div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6">
+
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05, rotate: -2 }}
@@ -155,12 +157,11 @@ transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
               About
             </Link>
             <Link
-                 href="/blog"
-                 className="text-white hover:text-purple-400 transition"
-                 >
-                    Blog
-                     </Link>
-
+              href="/blog"
+              className="text-white hover:text-purple-400 transition"
+            >
+              Blog
+            </Link>
 
             {/* Service Dropdown */}
             <div className="relative">
@@ -170,7 +171,6 @@ transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                 className="flex items-center gap-2 text-[15px] font-semibold text-white hover:text-[#8ea0ff]"
               >
                 Service
-
                 <motion.div animate={{ rotate: open ? 180 : 0 }}>
                   <ChevronDown size={16} />
                 </motion.div>
@@ -184,7 +184,7 @@ transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.25 }}
-                    className="absolute left-0 mt-4 w-[220px] rounded-2xl border border-white/10 bg-[#111B48]/95 backdrop-blur-xl p-4 shadow-2xl"
+                    className="absolute right-0 mt-4 w-full max-w-[240px] rounded-2xl border border-white/10 bg-[#111B48]/95 backdrop-blur-xl p-4 shadow-2xl"
                   >
                     <button
                       onClick={() => {
@@ -201,25 +201,15 @@ transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
             </div>
 
             <Link
-              href="/#case-study"
-              className={navLinkClass("case-study")}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToId("case-study");
-              }}
+              href="/case-studies"
+              className="text-white hover:text-purple-400 transition"
             >
               Case Study
             </Link>
 
-            
-
             <Link
-              href="/#contact"
-              className={navLinkClass("contact")}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToId("contact");
-              }}
+              href="/contact"
+              className="text-white hover:text-purple-400 transition"
             >
               Contact
             </Link>
@@ -247,7 +237,10 @@ transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                 className="absolute left-0 top-[-6px] w-5 h-[2px] bg-white rounded-full"
               />
               <motion.span
-                animate={{ rotate: mobileMenuOpen ? -90 : 0, top: mobileMenuOpen ? 0 : 6 }}
+                animate={{
+                  rotate: mobileMenuOpen ? -90 : 0,
+                  top: mobileMenuOpen ? 0 : 6,
+                }}
                 className="absolute left-0 top-[6px] w-5 h-[2px] bg-white rounded-full"
               />
             </motion.span>
@@ -260,7 +253,7 @@ transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
                 className="lg:hidden absolute top-[82px] left-0 right-0 z-[60]"
               >
                 <div className="mx-auto max-w-7xl px-6">
@@ -281,9 +274,16 @@ transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
                                 window.location.href = "/about";
                                 return;
                               }
+                              if (item.id === "case-studies") {
+                                window.location.href = "/case-studies";
+                                return;
+                              }
+                              if (item.id === "contact") {
+                                window.location.href = "/contact";
+                                return;
+                              }
                               scrollToId(item.id);
                             }}
-
                             className={`w-full text-left px-4 py-3 rounded-2xl border border-white/0 transition-all duration-300 ${
                               activeId === item.id
                                 ? "bg-gradient-to-r from-[#6E7BFF]/30 to-[#D546FF]/30 text-white border-white/15"
@@ -307,7 +307,7 @@ transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
                           }}
                           className="w-full rounded-2xl px-6 py-4 text-white font-semibold bg-gradient-to-r from-[#6E7BFF] to-[#D546FF] shadow-[0_15px_40px_rgba(179,76,255,0.35)]"
                         >
-                         Get in touch
+                          Get in touch
                         </motion.button>
                       </div>
                     </div>
@@ -316,11 +316,8 @@ transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
               </motion.div>
             )}
           </AnimatePresence>
-
-        
         </div>
       </div>
     </motion.header>
   );
 }
-
