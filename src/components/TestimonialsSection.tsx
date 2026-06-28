@@ -65,7 +65,7 @@ export default function TestimonialsSection() {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 mt-14">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-2 mt-16">
 
           {testimonials.map((item, index) => (
             <motion.div
@@ -86,8 +86,8 @@ export default function TestimonialsSection() {
                 from-[#6f8cff]
                 to-[#c14fff]
                 rounded-2xl
-                p-8
-                h-[330px]
+                p-6
+                h-[400px]
                 flex
                 flex-col
                 items-center
@@ -101,16 +101,16 @@ export default function TestimonialsSection() {
               </div>
 
               {/* Text */}
-              <p className="mt-1 text-white italic text-lg leading-5 flex-1">
+              <p className="mt-1 text-white italic text-lg leading-2 flex-1">
                 {item.text}
               </p>
 
               {/* Name */}
-              <h3 className="mt-1 text-black font-semibold text-1xl">
+              <h3 className="mt-1 text-black font-semibold text-xl">
                 {item.name}
               </h3>
 
-              <p className="text-[#ececec] text-base mt-2">
+              <p className="text-[#ececec] text-base mt-1">
                 {item.role}
               </p>
             </motion.div>

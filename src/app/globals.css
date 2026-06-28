@@ -13,14 +13,16 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
 
+  /* Default font family is Inter; headings can override via classes */
+  --font-sans: var(--font-inter);
 
   /* Handy theme tokens */
   --brand-navy: var(--brand-navy);
   --brand-royal: var(--brand-royal);
   --brand-magenta: var(--brand-magenta);
 }
+
 
 /* Global overflow safety */
 html,
@@ -35,13 +37,15 @@ body {
     var(--brand-navy);
   color: var(--foreground);
 
-  /* Typography: Inter for body by default (headings override via classes in components) */
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
-    Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  /* Premium enterprise typography default: Inter for body */
+  font-family: var(--font-inter), Inter, system-ui, -apple-system, Segoe UI,
+    Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 
+  font-feature-settings: "cv02" 1, "cv03" 1, "cv04" 1, "kern" 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+
 
 /* Better default font scaling + wrapping */
 * {
@@ -53,7 +57,95 @@ li {
   text-wrap: pretty;
 }
 
+/* ------------------------------
+   Enterprise Typography System
+   ------------------------------ */
+:root {
+  /* Clamp-based responsive sizing tokens (mobile -> desktop -> ultra-wide) */
+  --font-size-body: clamp(15px, 1.1vw, 18px);
+  --font-size-small: clamp(12.5px, 0.9vw, 14.5px);
 
+  --font-size-h1: clamp(34px, 3.6vw, 72px);
+  --font-size-h2: clamp(26px, 2.4vw, 44px);
+  --font-size-h3: clamp(18px, 1.7vw, 26px);
+
+  /* Reading comfort */
+  --leading-body: 1.7;
+  --leading-tight: 1.15;
+
+  /* Premium letter spacing */
+  --tracking-body: -0.01em;
+  --tracking-headings: -0.02em;
+  --tracking-nav: 0.01em;
+}
+
+/* Improve default text scaling */
+body {
+  font-size: var(--font-size-body);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+}
+
+/* Headings: Manrope by convention */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-manrope), Manrope, ui-sans-serif, system-ui;
+  letter-spacing: var(--tracking-headings);
+  line-height: var(--leading-tight);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: 800;
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  font-weight: 800;
+}
+
+p {
+  line-height: var(--leading-body);
+}
+
+a {
+  text-decoration-thickness: from-font;
+}
+
+@layer utilities {
+  /* Scoped utilities to avoid mass class refactors */
+  .text-headline {
+    font-family: var(--font-manrope), Manrope, ui-sans-serif, system-ui;
+    letter-spacing: var(--tracking-headings);
+  }
+
+  .text-body {
+    font-family: var(--font-inter), Inter, system-ui;
+    letter-spacing: var(--tracking-body);
+  }
+
+  .tracking-premium {
+    letter-spacing: -0.02em;
+  }
+
+  .leading-premium {
+    line-height: var(--leading-body);
+  }
+
+  .text-small-premium {
+    font-size: var(--font-size-small);
+  }
+}
 
 html {
   scroll-behavior: smooth;
@@ -61,8 +153,9 @@ html {
 }
 
 @layer utilities {
-  /* Premium glass surface */
+  /* Premium enterprise surfaces */
   .glass {
+
     background: rgba(2, 11, 53, 0.55);
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow:
@@ -108,11 +201,42 @@ html {
     min-height: 48px;
   }
 
-  /* Reduce layout shift for large typography on small screens */
+  /* Balance for premium typography */
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Gradient border helper */
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(90deg, rgba(95, 124, 255, 0.75), rgba(193, 79, 255, 0.75));
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  /* Premium glow on hover targets (used by existing cards/buttons later) */
+  .glow-hover {
+    transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+  }
+  .glow-hover:hover {
+    box-shadow:
+      0 18px 60px rgba(95, 124, 255, 0.18),
+      0 10px 35px rgba(193, 79, 255, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
 }
+
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
@@ -139,3 +263,111 @@ html {
 
 
 
+/* =========================================================
+   Ultra Wide Desktop Support (4K & 8K)
+========================================================= */
+
+/* Large Desktop */
+@media (min-width: 1600px) {
+  html {
+    font-size: 17px;
+  }
+
+  .container,
+  .wrapper,
+  .section-container {
+    max-width: 1600px;
+    margin-inline: auto;
+    padding-inline: 48px;
+  }
+}
+
+/* 2K Display */
+@media (min-width: 1920px) {
+  html {
+    font-size: 18px;
+  }
+
+  .container,
+  .wrapper,
+  .section-container {
+    max-width: 1800px;
+    padding-inline: 60px;
+  }
+}
+
+/* 4K Display */
+@media (min-width: 2560px) {
+  html {
+    font-size: 21px;
+  }
+
+  .container,
+  .wrapper,
+  .section-container {
+    max-width: 2200px;
+    padding-inline: 90px;
+  }
+
+  section {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+
+  h1 {
+    font-size: clamp(5rem, 5vw, 7rem);
+  }
+
+  h2 {
+    font-size: clamp(3.5rem, 4vw, 5rem);
+  }
+
+  p {
+    font-size: 1.25rem;
+  }
+
+  button {
+    font-size: 1.1rem;
+  }
+}
+
+/* 8K Display */
+@media (min-width: 3840px) {
+  html {
+    font-size: 26px;
+  }
+
+  .container,
+  .wrapper,
+  .section-container {
+    max-width: 3200px;
+    padding-inline: 140px;
+  }
+
+  section {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+
+  h1 {
+    font-size: clamp(6rem, 5vw, 9rem);
+  }
+
+  h2 {
+    font-size: clamp(4rem, 4vw, 6rem);
+  }
+
+  h3 {
+    font-size: clamp(2.2rem, 2vw, 3rem);
+  }
+
+  p {
+    font-size: 1.4rem;
+    line-height: 2;
+  }
+
+  button {
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+  }
+}

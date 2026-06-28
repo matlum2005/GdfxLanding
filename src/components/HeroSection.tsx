@@ -42,9 +42,6 @@ export default function HeroSection() {
   const springX = useSpring(magnetic.x, { stiffness: 500, damping: 35, mass: 0.35 });
   const springY = useSpring(magnetic.y, { stiffness: 500, damping: 35, mass: 0.35 });
 
-  // Magnetic springs (values used directly in the primary button)
-  // NOTE: kept in component state to preserve existing motion feel.
-  // Intentionally not using the computed transform here.
   void springX;
   void springY;
 
@@ -216,7 +213,8 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.18 }}
-              className="mt-5 text-base sm:text-lg lg:text-xl leading-relaxed text-gray-300 max-w-2xl text-balance"
+              className="mt-3 text-base sm:text-lg lg:text-xl leading-relaxed text-gray-300 max-w-1xl text-balance"
+              
             >
               Consider that you have a concept for a website or an app that can deliver a solution, knowledge, or something enjoyable. We&apos;re here to help you bring your vision to life online or on your phone. We want users to have a positive experience using your website or app, which means it must be simple to use, appealing to the eye, and capable of performing its intended function.
             </motion.p>

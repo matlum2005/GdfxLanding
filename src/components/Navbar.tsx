@@ -103,9 +103,10 @@ export default function Navbar() {
   }, []);
 
   const navLinkClass = (id: string) =>
-    `relative text-[15px] font-semibold transition-all duration-300 ${
+    `relative text-[15px] font-medium tracking-[0.01em] transition-all duration-300 ${
       activeId === id ? "text-white" : "text-white/80 hover:text-white"
     }`;
+
 
   return (
     <motion.header
@@ -116,7 +117,7 @@ export default function Navbar() {
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#5f7cff20,transparent_70%)] pointer-events-none" />
 
-      <div className="h-[82px] backdrop-blur-xl bg-[#060f35]/75 border-b border-white/10 shadow-[0_8px_40px_rgba(0,0,0,0.35)]">
+     <div className="h-[60px] sm:h-[72px] backdrop-blur-xl bg-[#060f35]/80 border-b border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
 <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6">
 
           {/* Logo */}
@@ -140,8 +141,9 @@ export default function Navbar() {
           <nav className="hidden lg:flex items-center gap-10 text-white">
             <Link
               href="/"
-              className="relative text-[15px] font-semibold text-white"
+              className="relative text-[15px] font-medium tracking-[0.01em] text-white"
             >
+
               Home
               <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-gradient-to-r from-[#6E7BFF] to-[#D546FF]" />
             </Link>
@@ -168,7 +170,8 @@ export default function Navbar() {
               <button
                 data-navbar-dropdown-button="service"
                 onClick={() => setOpen((prev) => !prev)}
-                className="flex items-center gap-2 text-[15px] font-semibold text-white hover:text-[#8ea0ff]"
+                className="flex items-center gap-2 text-[15px] font-medium tracking-[0.01em] text-white hover:text-[#8ea0ff]"
+
               >
                 Service
                 <motion.div animate={{ rotate: open ? 180 : 0 }}>
@@ -290,7 +293,8 @@ export default function Navbar() {
                                 : "bg-white/0 hover:bg-white/5 text-white/80"
                             }`}
                           >
-                            <span className="font-semibold text-[16px]">
+                            <span className="font-medium tracking-[0.01em] text-[16px]">
+
                               {item.label}
                             </span>
                           </button>

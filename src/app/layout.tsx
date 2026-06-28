@@ -1,21 +1,38 @@
 import type { Metadata } from "next";
-import { Inter, Sora } from "next/font/google";
+import { Inter, Sora, Manrope, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-// (side-effect import for global styles)
 
-// NOTE: Next.js should be able to resolve this CSS module via the app router. If the TS error persists,
-// it is likely due to IDE/TS server caching; no runtime logic is affected.
 
+// Fonts are injected as CSS variables. They are safe to keep even if some tooling
+// shows a transient TS hint about side-effect imports.
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
+// Keep existing additional fonts registered, but enterprise typography will
+// primarily use Manrope (headings/buttons) + Inter (body).
 const sora = Sora({
   subsets: ["latin"],
   variable: "--font-sora",
+  display: "swap",
 });
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
+
+
 
 
 export const metadata: Metadata = {
@@ -31,9 +48,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${sora.variable} antialiased`}>
+      <body
+        className={`${inter.variable} ${sora.variable} ${manrope.variable} ${jakarta.variable} antialiased`}
+      >
         {children}
       </body>
     </html>
   );
 }
+
