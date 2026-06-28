@@ -20,10 +20,10 @@ export default function Footer() {
           >
             <Link href="/">
               <Image
-                src="/images/logo.png"
+                src="/images/Logo.png"
                 alt="GDFX Logo"
-                width={240}
-                height={90}
+                width={150}
+                height={80}
                 className="mb-4"
               />
             </Link>
